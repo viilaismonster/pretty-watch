@@ -10,6 +10,7 @@ in bash/zsh environment
 ##### adb logcat
 
 > $ chmod +x ./logcat.sh
+
 > $ ./logcat.sh
 
 ## BEHAVIOUR ##
@@ -24,7 +25,9 @@ in bash/zsh environment
 ## PARAMS ##
 
 > -c | --clear    : run adb logcat -c at begining
+
 > -d | --dim      : add (grep) keyword to dim list, line will be colored dim/black 
+
 > -s | --skip     : add (grep) keyword to skip list, line will be skipped
 
 ## EXAMPLE ##
