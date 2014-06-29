@@ -21,5 +21,6 @@ do
     # echo "x $line"
        colorfy "${line:0:1}" ^E "$line" -red \
     && colorfy "${line:0:1}" ^W "$line" -yellow \
+    && colorfy "${line:0:1}" ^I "$line" -green \
     && echo $line
 done
