@@ -30,6 +30,8 @@ in bash/zsh environment
 
 > -s | --skip     : add (grep) keyword to skip list, line will be skipped
 
+> [<postpend params>] : if provided, script will run in positive mode, which filter postpend array out first
+
 ## EXAMPLE ##
 
 > $ ./logcat.sh -c -s ^T -s ^I -d SocketStream
