@@ -3,6 +3,8 @@
 
 dim_list=""
 skip_list=""
+list=""
+flags=""
 
 function colorfy() {
     if grep -q $2 <<<$1; then
@@ -12,6 +14,16 @@ function colorfy() {
         cfont -reset
         return 1
     fi
+}
+
+function batch_test() {
+    line=$1
+    shift
+    while test $# -gt 0; do
+        grep -q $1 <<< $line && shift && continue
+        return 0
+    done
+    return 1
 }
 
 function batch_colorfy() {
@@ -25,10 +37,15 @@ function batch_colorfy() {
     return 1
 }
 
+function if_flag() {
+    grep -q "|$1" <<< $flags && return 0
+    return 1
+}
+
 while test $# -gt 0; do
     case "$1" in
         -c | --clear )
-            adb logcat -c
+            flags=$flags"|--clear"
         ;;
         -d | --dim )
             shift
@@ -37,6 +54,9 @@ while test $# -gt 0; do
         -s | --skip )
             shift
             skip_list=$skip_list" $1"
+        ;;
+        * )
+            list=$list" "$1
         ;;
     esac
     shift
