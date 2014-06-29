@@ -20,10 +20,10 @@ function batch_test() {
     line=$1
     shift
     while test $# -gt 0; do
-        grep -q $1 <<< $line && shift && continue
-        return 0
+        grep -q $1 <<< $line && return 1
+        shift
     done
-    return 1
+    return 0
 }
 
 function batch_colorfy() {

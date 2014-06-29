@@ -11,7 +11,8 @@ if_flag --clear && echo "adb clean" && adb logcat -c
 adb logcat | while read line
 do
     if [ "$list" != "" ]; then
-        batch_test $line $list && continue
+        # echo -n "filter $list"
+        batch_test "$line" $list && continue
     fi
 
     batch_colorfy "$line" "" $skip_list && continue
