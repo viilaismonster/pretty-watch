@@ -30,7 +30,7 @@ in bash/zsh environment
 
 > -s | --skip     : add (grep) keyword to skip list, line will be skipped
 
-> [<postpend params>] : if provided, script will run in positive mode, which filter postpend array out first
+> <postpend params> : if provided, script will run in positive mode, which filter postpend array out first
 
 ## EXAMPLE ##
 
@@ -43,5 +43,12 @@ will
 3.  skip I(Info) log
 4.  when line contains "SocketStream", dim it
 5.  print ^E in red, ^W in yellow, others in default color
+
+> $ ./logcat.sh asi
+
+will
+
+1. fliter line contians asi, skip the other
+2. print ^E in red, ^W in yellow, others in default color
 
 ## modify at your convenience :) ##
