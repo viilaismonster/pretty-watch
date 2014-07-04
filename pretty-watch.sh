@@ -1,5 +1,6 @@
 #!/bin/bash
-. libs/cfont.sh
+
+. libs/common.sh
 
 dim_list=""
 skip_list=""
