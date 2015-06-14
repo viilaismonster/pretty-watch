@@ -1,4 +1,19 @@
 #!/bin/bash
+
+adbparams=
+
+while test $# -gt 0; do
+    case $1 in
+        -s )
+            shift
+            adbparams="$adbparams -s $1"
+            ;;
+        * ) break;;
+    esac
+    shift
+done
+
+
 . pretty-watch.sh
 
 if test $? -ne 0; then
@@ -6,9 +21,9 @@ if test $? -ne 0; then
     exit 1
 fi
 
-if_flag --clear && echo "adb clean" && adb logcat -c
+if_flag --clear && echo "adb clean" && adb $adbparams logcat -c
 
-adb logcat | while read line
+adb $adbparams logcat | while read line
 do
     if [ "$list" != "" ]; then
         # echo -n "filter $list"
